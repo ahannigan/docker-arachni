@@ -1,0 +1,22 @@
+[Unit]
+Description=Run Arachni Web Application Scanner
+
+Requires=docker.service
+After=docker.service
+
+[Service]
+User=core
+TimeoutStartSec=0
+Restart=on-failure
+RestartSec=5s
+
+ExecStartPre=-/usr/bin/docker kill arachni
+ExecStartPre=-/usr/bin/docker rm arachni
+ExecStartPre=/usr/bin/docker pull ahannigan/arachni
+
+ExecStart=/usr/bin/docker run \
+    --name arachni \
+    -p 9292:9292 \
+    ahannigan/arachni bin/arachni_web
+
+ExecStop=/usr/bin/docker stop arachni
