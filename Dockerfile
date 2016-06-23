@@ -1,10 +1,12 @@
 FROM debian:8
 
-ENV VERSION 1.2.1
-ENV WEB_VERSION 0.5.7.1
+ARG VERSION=1.4
+ARG WEB_VERSION=0.5.10
+ENV VERSION ${VERSION}
+ENV WEB_VERSION ${WEB_VERSION}
 
-RUN apt-get update && \
-    apt-get install -y wget && \
+RUN apt-get -qq update && \
+    apt-get -qq install -y --no-install-recommends wget ca-certificates && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists
 
