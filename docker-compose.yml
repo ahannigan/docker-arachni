@@ -1,0 +1,9 @@
+version: '2'
+
+services:
+  web:
+    image: ahannigan/docker-arachni
+    build: .
+    ports:
+      - "9292:9292"
+    command: bin/arachni_web -o 0.0.0.0

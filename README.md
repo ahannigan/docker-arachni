@@ -4,17 +4,19 @@
 
 ## Running
 
-- Default drops in to bash shell in arachni folder
+- Running Arachni Web UI
+```bash
+docker-compose up -d web
+or
+docker run -d --name arachni -p 9292:9292 ahannigan/docker-arachni bin/arachni_web -o 0.0.0.0
+```
+
+- Drop in to a bash shell in arachni folder
 ```bash
 docker run -it --rm ahannigan/docker-arachni
 ```
 
-- Run Arachni Web
-```bash
-docker run -d --name arachni -p 9292:9292 ahannigan/docker-arachni bin/arachni_web
-```
-
-See [Arachni Wiki](https://github.com/Arachni/arachni/wiki) for more commands
+See the [Arachni Wiki](https://github.com/Arachni/arachni/wiki) and [Arachni Web Wiki](https://github.com/Arachni/arachni-ui-web/wiki) for more information.
 
 There are also systemd/fleet service files under units/.
 
@@ -27,5 +29,5 @@ docker build --build-arg VERSION=1.2.1 --build-arg WEB_VERSION=0.5.7.1 -t arachn
 
 Default version set in Dockerfile:
 ```bash
-docker build -t arachni .
+docker-compose build
 ```

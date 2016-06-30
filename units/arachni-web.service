@@ -17,6 +17,6 @@ ExecStartPre=/usr/bin/docker pull ahannigan/docker-arachni
 ExecStart=/usr/bin/docker run \
     --name arachni \
     -p 9292:9292 \
-    ahannigan/docker-arachni bin/arachni_web
+    ahannigan/docker-arachni bin/arachni_web -o 0.0.0.
 
 ExecStop=/usr/bin/docker stop arachni
