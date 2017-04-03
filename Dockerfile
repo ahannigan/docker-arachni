@@ -1,9 +1,7 @@
 FROM debian:8
 
-ARG VERSION=1.4
-ARG WEB_VERSION=0.5.10
-ENV VERSION ${VERSION}
-ENV WEB_VERSION ${WEB_VERSION}
+ARG VERSION=1.5.1
+ARG WEB_VERSION=0.5.12
 
 RUN apt-get -qq update && \
     apt-get -qq install -y --no-install-recommends wget ca-certificates && \
